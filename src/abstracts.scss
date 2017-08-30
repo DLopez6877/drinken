@@ -1,0 +1,59 @@
+/////////////// VARIABLES
+$primary-color: #6A0C18;
+$secondary-color: #E0E2C0;
+$accent-color: #90FFD6;
+$dark-color: #5C5C5C;
+$light-color: #F8F4EF;
+
+/////////////// PLACEHOLDERS
+
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: white;
+    font-family: es-semibold;
+    text-shadow: 0px 2px 4px black;
+  }
+  hr {
+    background-color: white;
+    width: 334px;
+    height: 5px;
+    box-shadow: 0px 2px 4px black;
+    margin: 0;
+  }
+}
+
+%hamburger {
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  @extend %center;
+  flex-direction: column;
+  transition: all .7s ease-in-out;
+  .line {
+    width: 28px;
+    height: 2px;
+    background-color: white;
+  }
+  .line:nth-child(2) {
+    margin: 7px 0;
+  }
+}
+
+%section-title {
+  height: 50px;
+  border: 5px solid white;
+  background-color: $secondary-color;
+  color: $dark-color;
+  @extend %center;
+}

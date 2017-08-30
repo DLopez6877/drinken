@@ -1,0 +1,16 @@
+<h1>create drink</h1>
+<form #addDrinkForm="ngForm" (ngSubmit)="createDrink(addDrinkForm); false">
+  <label for="name">Name</label>
+  <input type="text" name="name" ngModel>
+  <label for="img">Image URL</label>
+  <input type="text" name="img" ngModel>
+  <label for="ingredients">Ingredient</label>
+  <input type="text" name="ingredients" ngModel>
+  <button type="submit">Submit</button>
+</form>
+<h1>get one drink by id</h1>
+<form #getDrinkForm="ngForm" (ngSubmit)="getOneDrink(getDrinkForm); false">
+  <label for="id">ID</label>
+  <input type="text" name="id" ngModel>
+  <button type="submit">Submit</button>
+</form>

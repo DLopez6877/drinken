@@ -1,0 +1,115 @@
+@import '../../abstracts';
+
+div .active {
+  transform: translateX(0);
+}
+
+div .hidden {
+  display: none;
+}
+
+.header {
+  min-width: 375px;
+  height: 350px;
+  background-image: url("../../assets/images/countertop.png");
+  background-position: center;
+  background-size: cover;
+  padding: 10px;
+  @extend %center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  @extend %title;
+  margin-bottom: 40px;
+}
+
+.hamburger {
+  @extend %hamburger;
+  align-self: flex-end;
+}
+
+.hamburger-x {
+  border-color: $primary-color;
+  background-color: white;
+  .line {
+    background-color: $primary-color;
+  }
+  .line:nth-child(1) {
+    transform: rotate(45deg) translate(6.5px, 6.5px);
+  }
+  .line:nth-child(2) {
+    opacity: 0;
+  }
+  .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6.5px, -6.5px);
+  }
+}
+
+.drinks {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drink {
+  position: relative;
+  margin-bottom: 10px;
+  img {
+    width: 300px;
+    height: 200px;
+  }
+  .name {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: fade-out($primary-color, .3);
+    h2 {
+      display: inline-block;
+      font-size: 30px;
+      letter-spacing: 2px;
+      width: 300px;
+      text-align: center;
+      color: $light-color;
+      margin: 10px 0;
+      font-family: es-light;
+    }
+  }
+}
+
+.nav {
+  z-index: 100;
+  position: fixed;
+  background-color: $light-color;
+  @extend %center;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: all .7s ease-in-out;
+  border: 5px solid $primary-color;
+  hr {
+    width: 260px;
+    height: 2px;
+    color: $dark-color;
+    margin: 20px;
+  }
+  h1 {
+    color: $primary-color;
+  }
+  p {
+    color: $dark-color;
+    margin: 0;
+    font-size: 24px;
+    font-family: es-light;
+  }
+  .handle {
+    font-size: 20px;
+    text-transform: lowercase;
+  }
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: es-medium;
+  background-color: #F8F4EF;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+  letter-spacing: 1.10px;
+}
+
+/*******************       fonts       ******************/
+@font-face {
+  font-family: "es-medium";
+  src: url("assets/Encode_Sans/EncodeSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "es-semibold";
+  src: url("assets/Encode_Sans/EncodeSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "es-light";
+  src: url("assets/Encode_Sans/EncodeSans-Light.ttf");
+}

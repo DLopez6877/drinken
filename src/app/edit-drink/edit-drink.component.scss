@@ -1,0 +1,48 @@
+@import '../../abstracts';
+
+.section-header {
+  height: 86px;
+  background-color: $primary-color;
+  color: $light-color;
+  border-bottom: 5px solid $dark-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  * {
+    margin: 15px 0;
+  }
+}
+
+.section-title {
+  @extend %section-title;
+}
+
+.delete {
+  height: 36px;
+  width: 200px;
+  background-color: #D0021B;
+  color: white;
+  font-size: 18px;
+  align-self: center;
+}
+
+// PUMPS
+
+.pump {
+  display: flex;
+  flex-direction: column;
+}
+
+.pump-title {
+  width: 200px;
+  h2 {
+    font-family: es-thin;
+    margin: 0 auto;
+  }
+}

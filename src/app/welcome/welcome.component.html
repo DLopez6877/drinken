@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="hamburger" (click)="toggleNavState()" [class.hamburger-x]="navState">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="nav logged-in" [class.active]="navState">
+    <h1>ADD DRINKS</h1>
+    <h1 routerLink="edit-drink">EDIT DRINKS</h1>
+    <h1>EDIT PUMPS</h1>
+    <h1 (click)="logOut()">LOG OUT</h1>
+    <hr>
+    <p>LOGGED IN AS:</p>
+    <p class="handle">dlopez6877@gmail.com</p>
+  </div>
+  <div class="nav" [class.active]="navState" *ngIf="!loggedIn">
+    <img src="../assets/images/amf.png" alt="drink icon">
+    <hr>
+    <h1 (click)="logIn()">Log In</h1>
+  </div>
+  <img src="../assets/images/DRINKEN.png" alt="logo">
+  <div class="title">
+    <h1>Select A Drink</h1>
+    <hr>
+  </div>
+</div>
+<div class="drinks">
+  <div class="drink">
+    <img src="../assets/images/gin.png" alt="gin and juice">
+    <div class="name"><h2>Gin & Tonic</h2></div>
+  </div>
+  <div class="drink">
+    <img src="../assets/images/gin.png" alt="gin and juice">
+    <div class="name"><h2>Gin & Tonic</h2></div>
+  </div>
+  <div class="drink" *ngFor="let drink of drinks">
+    <img src="{{drink.img}}" alt="drink">
+    <div class="name"><h2>{{drink.name}}</h2></div>
+  </div>
+</div>
