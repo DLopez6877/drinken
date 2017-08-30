@@ -3,5 +3,5 @@ export class Drink {
     public name: string,
     public img: string,
     public ingrediets: Array<any>
-  ) { }
+  ) {}
 }
