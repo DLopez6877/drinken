@@ -9,26 +9,41 @@ import { Drink } from '../drink.model';
   styleUrls: ['./edit-drink.component.scss']
 })
 export class EditDrinkComponent implements OnInit {
+  drinks: Array<Drink>;
+  selectedDrink: any;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.getAllDrinks();
+  }
+
+  getAllDrinks() {
     this.api.getAllDrinks().subscribe(res => {
-      console.log(res.json());
+      this.drinks = res.json();
+      this.selectedDrink = this.drinks[0];
     });
   }
 
-  createDrink(form: NgForm) {
-    var newDrink = new Drink(form.value.name, form.value.img, [form.value.ingredients]);
-    this.api.createNewDrink(newDrink).subscribe((res) => {
-      console.log(res);
-    });
+  editDrink(form: NgForm) {
+    console.log('drink edited');
   }
 
-  getOneDrink(form: NgForm) {
-    this.api.getOneDrink(form.value.id).subscribe(res => {
-      console.log(res);
+  onChange(selectedDrink) {
+    this.api.getOneDrink(selectedDrink).subscribe(res => {
+      this.selectedDrink = res.json()[0];
+      console.log(this.selectedDrink);
     })
+  }
+
+  deleteDrink() {
+    if(confirm("Are you sure you want to delete this Drink?")) {
+      this.api.deleteDrink(this.selectedDrink.name).subscribe(res => {
+        console.log(res);
+        this.getAllDrinks();
+      });
+    }
+    console.log(this.selectedDrink);
   }
 
 }

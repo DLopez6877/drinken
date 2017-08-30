@@ -21,4 +21,8 @@ export class ApiService {
     return this.http.get(`${this.baseURI}/getdrink/${id}`);
   }
 
+  deleteDrink(id: string) {
+    return this.http.get(`${this.baseURI}/deletedrink/${id}`);
+  }
+
 }

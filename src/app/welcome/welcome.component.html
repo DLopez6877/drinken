@@ -5,23 +5,23 @@
     <div class="line"></div>
   </div>
   <div class="nav logged-in" [class.active]="navState">
-    <h1>ADD DRINKS</h1>
+    <h1 routerLink="add-drink">ADD DRINKS</h1>
     <h1 routerLink="edit-drink">EDIT DRINKS</h1>
     <h1>EDIT PUMPS</h1>
     <h1 (click)="logOut()">LOG OUT</h1>
-    <hr>
+    <div class="hr"></div>
     <p>LOGGED IN AS:</p>
     <p class="handle">dlopez6877@gmail.com</p>
   </div>
   <div class="nav" [class.active]="navState" *ngIf="!loggedIn">
     <img src="../assets/images/amf.png" alt="drink icon">
-    <hr>
+    <div class="hr"></div>
     <h1 (click)="logIn()">Log In</h1>
   </div>
   <img src="../assets/images/DRINKEN.png" alt="logo">
   <div class="title">
     <h1>Select A Drink</h1>
-    <hr>
+    <div class="hr"></div>
   </div>
 </div>
 <div class="drinks">

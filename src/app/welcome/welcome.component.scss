@@ -93,7 +93,7 @@ div .hidden {
   transform: translateX(-100%);
   transition: all .7s ease-in-out;
   border: 5px solid $primary-color;
-  hr {
+  .hr {
     width: 260px;
     height: 2px;
     color: $dark-color;
