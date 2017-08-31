@@ -4,6 +4,12 @@
   @extend %section-header;
 }
 
+select {
+  height: 35px;
+  width: 100%;
+  @include linear-gradient(white, lightgrey);
+}
+
 form {
   @extend %container;
   @extend %center;

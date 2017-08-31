@@ -89,8 +89,9 @@
   left: 28%;
 }
 
-.selected-size {
+div .selected {
   border: 1px solid $dark-color;
+  box-sizing: content-box;
 }
 
 .loading-button {

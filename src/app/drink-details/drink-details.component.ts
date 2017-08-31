@@ -12,8 +12,11 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./drink-details.component.scss']
 })
 export class DrinkDetailsComponent implements OnInit {
-  drinkName;
+  drinkName: string;
   drinkToDisplay: Drink;
+  selectedSmall: boolean = false;
+  selectedMedium: boolean = false;
+  selectedLarge: boolean = false;
 
   constructor(private api: ApiService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
@@ -30,6 +33,30 @@ export class DrinkDetailsComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  setSize(size: string) {
+    this.selectedSmall = false;
+    this.selectedMedium = false;
+    this.selectedLarge = false;
+    if (size === "small") {
+      this.selectedSmall = true;
+    } else if (size === "medium") {
+      this.selectedMedium = true;
+    } else {
+      this.selectedLarge = true;
+    }
+  }
+
+  pourDrink(){
+    if (this.selectedSmall = true) {
+      console.log("Pouring Small Drink")
+    } else if (this.selectedMedium = true) {
+      console.log("Pouring Medium Drink")
+    } else {
+      console.log("Pouring Large Drink")
+    }
+    console.log(this.drinkToDisplay);
   }
 
 }
