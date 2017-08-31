@@ -6,11 +6,24 @@ $dark-color: #5C5C5C;
 $light-color: #F8F4EF;
 
 /////////////// PLACEHOLDERS
+%container {
+  padding: 20px 30px;
+}
 
 %center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+%section-header {
+  height: 86px;
+  background-color: $primary-color;
+  color: $light-color;
+  border-bottom: 5px solid $dark-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 %title {
@@ -53,6 +66,7 @@ $light-color: #F8F4EF;
 %section-title {
   height: 50px;
   border: 5px solid white;
+  width: 330px;
   background-color: $secondary-color;
   @extend %center;
   h2 {

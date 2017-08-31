@@ -1,0 +1,103 @@
+@import '../../abstracts';
+
+.section-header {
+  @extend %section-header;
+}
+
+.container {
+  @extend %container;
+  @extend %center;
+  flex-direction: column;
+}
+
+.drink-image {
+  position: relative;
+  margin-bottom: 10px;
+  @extend %center;
+  img {
+    width: 300px;
+    height: 200px;
+    border: 5px solid $dark-color;
+  }
+  .edit {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(95px);
+    height: 30px;
+    width: 50px;
+    color: $dark-color;
+    font-family: es-light;
+    background-color: fade-out($light-color, .1);
+    @extend %center;;
+  }
+  .outer-border {
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: inherit;
+    border: 5px solid $dark-color;
+    width: 320px; //image width + (border width * 4)
+    height: 220px; //image height + (border height * 4)
+  }
+}
+
+.section-title {
+  @extend %section-title;
+  margin: 20px 0;
+}
+
+.size-options {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  .size {
+    width: 83px;
+    height: 141px;
+    position: relative;
+    h2 {
+      font-family: es-light;
+      color: $dark-color;
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+    }
+  }
+}
+
+.small img {
+  width: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.medium img {
+  width: 30px;
+  position: absolute;
+  top: 5%;
+  left: 27%;
+}
+
+.large img {
+  width: 38px;
+  position: absolute;
+  top: 7%;
+  left: 28%;
+}
+
+.selected-size {
+  border: 1px solid $dark-color;
+}
+
+.loading-button {
+  @include loading-button("POUR MY DRINK", "DRINK made", 5s);
+  margin: 55px 0;
+}
+
+.back-button {
+  @extend %back-button;
+}

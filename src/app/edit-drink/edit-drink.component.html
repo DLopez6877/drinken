@@ -9,7 +9,7 @@
   </div>
 
   <select (change)="onChange($event.target.value)">
-    <option *ngFor="let drink of drinks" value="{{drink._id}}">{{drink.name}}</option>
+    <option *ngFor="let drink of drinks" value="{{drink.name}}">{{drink.name}}</option>
   </select>
 
   <button type="button" class="delete" (click)="deleteDrink()">DELETE</button>

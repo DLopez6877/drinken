@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Drink } from '../drink.model';
 import { ApiService } from '../services/api.service';
@@ -14,7 +15,7 @@ export class DrinkDetailsComponent implements OnInit {
   drinkName;
   drinkToDisplay: Drink;
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private api: ApiService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -25,6 +26,10 @@ export class DrinkDetailsComponent implements OnInit {
       this.drinkToDisplay = res.json()[0];
     })
 
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }

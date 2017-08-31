@@ -1,17 +1,11 @@
 @import '../../abstracts';
 
 .section-header {
-  height: 86px;
-  background-color: $primary-color;
-  color: $light-color;
-  border-bottom: 5px solid $dark-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %section-header;
 }
 
 form {
-  padding: 20px 30px;
+@extend %container;
   display: flex;
   flex-direction: column;
   > * {
