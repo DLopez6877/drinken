@@ -25,15 +25,7 @@
   </div>
 </div>
 <div class="drinks">
-  <div class="drink">
-    <img src="../assets/images/gin.png" alt="gin and juice">
-    <div class="name"><h2>Gin & Tonic</h2></div>
-  </div>
-  <div class="drink">
-    <img src="../assets/images/gin.png" alt="gin and juice">
-    <div class="name"><h2>Gin & Tonic</h2></div>
-  </div>
-  <div class="drink" *ngFor="let drink of drinks">
+  <div class="drink" *ngFor="let drink of drinks" (click)="goToDetailPage(drink)">
     <img src="{{drink.img}}" alt="drink">
     <div class="name"><h2>{{drink.name}}</h2></div>
   </div>

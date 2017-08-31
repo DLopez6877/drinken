@@ -23,6 +23,10 @@ const appRoutes: Routes = [
   {
     path: 'edit-drink',
     component: EditDrinkComponent
+  },
+  {
+    path: 'drink/:name',
+    component: DrinkDetailsComponent
   }
 ];
 

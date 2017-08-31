@@ -98,12 +98,11 @@ $light-color: #F8F4EF;
 @mixin loading-button($starting-text, $ending-text, $duration) {
   color: white;
   text-transform: uppercase;
-  input {
-    display: none;
-    &:checked + label {
+  button {
+    &:focus + label {
       animation: loading-background $duration linear forwards;
     }
-    &:checked + label::after {
+    &:focus + label::after {
       animation: loading $duration linear forwards;
     }
   }
@@ -115,7 +114,7 @@ $light-color: #F8F4EF;
     height: 0;
     left: 50%;
     margin-left: -154px; //width divided by 2 * -1
-    margin-top: -35px; //height divided by 2 * -1
+    margin-top: -60px; //height divided by 2 * -1
     position: relative;
     text-align: center;
     top: 50%;

@@ -11,6 +11,7 @@ import { Drink } from '../drink.model';
 export class EditDrinkComponent implements OnInit {
   drinks: Array<Drink>;
   selectedDrink: any;
+  previousURL: string;
 
   constructor(private api: ApiService) { }
 
@@ -44,6 +45,10 @@ export class EditDrinkComponent implements OnInit {
       });
     }
     console.log(this.selectedDrink);
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }

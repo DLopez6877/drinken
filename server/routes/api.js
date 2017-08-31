@@ -38,8 +38,8 @@ router.get('/getalldrinks', (req,res) => {
 });
 
 //Get one drink from DB by name
-router.get('/getdrink/:id', (req,res) => {
-  Drink.find({_id: req.params.id}, (err, drink) => {
+router.get('/getdrink/:name', (req,res) => {
+  Drink.find({name: req.params.name}, (err, drink) => {
     if (err) { res.send(err); }
     res.json(drink);
   });

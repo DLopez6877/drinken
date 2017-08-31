@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
 import { NgForm } from '@angular/forms';
+
+import { ApiService } from '../services/api.service';
 import { Drink } from '../drink.model';
 
 @Component({
@@ -29,6 +30,10 @@ export class AddDrinkComponent implements OnInit {
     this.api.getOneDrink(form.value.id).subscribe(res => {
       console.log(res);
     })
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }

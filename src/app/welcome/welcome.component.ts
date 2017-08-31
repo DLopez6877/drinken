@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ApiService } from '../services/api.service';
+import { Drink } from '../drink.model';
 
 @Component({
   selector: 'app-welcome',
@@ -9,9 +12,9 @@ import { ApiService } from '../services/api.service';
 export class WelcomeComponent implements OnInit {
   navState: boolean = false;
   loggedIn: boolean = false;
-  drinks: Array<any>;
+  drinks: Drink[];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.api.getAllDrinks().subscribe(res => {
@@ -31,5 +34,9 @@ export class WelcomeComponent implements OnInit {
   logOut() {
     this.loggedIn = false;
   }
+
+  goToDetailPage(clickedDrink: Drink) {
+     this.router.navigate(['drink', clickedDrink.name]);
+   };
 
 }
