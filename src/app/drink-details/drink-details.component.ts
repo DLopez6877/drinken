@@ -49,9 +49,9 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   pourDrink(){
-    if (this.selectedSmall = true) {
+    if (this.selectedSmall === true) {
       console.log("Pouring Small Drink")
-    } else if (this.selectedMedium = true) {
+    } else if (this.selectedMedium === true) {
       console.log("Pouring Medium Drink")
     } else {
       console.log("Pouring Large Drink")

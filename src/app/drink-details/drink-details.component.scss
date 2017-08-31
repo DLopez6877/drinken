@@ -95,7 +95,7 @@ div .selected {
 }
 
 .loading-button {
-  @include loading-button("POUR MY DRINK", "DRINK made", 5s);
+  @include loading-button("POUR MY DRINK", "DRINK made", 4s);
   margin: 55px 0;
 }
 
