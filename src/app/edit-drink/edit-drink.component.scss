@@ -5,8 +5,8 @@
 }
 
 form {
-@extend %container;
-  display: flex;
+  @extend %container;
+  @extend %center;
   flex-direction: column;
   > * {
     margin: 15px 0;

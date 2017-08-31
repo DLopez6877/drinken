@@ -1,17 +1,165 @@
-<h1>create drink</h1>
+<div class="section-header">
+  <h1>ADD A DRINK</h1>
+</div>
 <form #addDrinkForm="ngForm" (ngSubmit)="createDrink(addDrinkForm); false">
-  <label for="name">Name</label>
-  <input type="text" name="name" ngModel>
-  <label for="img">Image URL</label>
-  <input type="text" name="img" ngModel>
-  <label for="ingredients">Ingredient</label>
-  <input type="text" name="ingredients" ngModel>
-  <button type="submit">Submit</button>
+  <!-- NAME -->
+  <div class="section-title">
+    <h2>NAME YOUR DRINK</h2>
+  </div>
+  <div class="form-control">
+    <h2 for="name">Name:</h2>
+    <input type="text" name="name" ngModel>
+  </div>
+
+  <!-- IMAGE -->
+  <div class="section-title">
+    <h2>CHOOSE THE IMAGE</h2>
+  </div>
+  <div class="form-control">
+    <h2>Enter image url:</h2>
+    <input type="text" name="img" ngModel placeholder="http://example-image.com">
+  </div>
+
+  <!-- INGREDIENTS -->
+  <div class="section-title">
+    <h2>INGREDIENTS</h2>
+  </div>
+
+  <div class="pump">
+    <div class="pump-title">
+      <p>Pump 1:</p>
+      <div class="hr"></div>
+    </div>
+    <div class="form-control">
+      <h2>Drink:</h2>
+      <input type="text" name="ingredients" ngModel>
+    </div>
+    <div class="form-control">
+      <h2>QTY:</h2>
+      <select class="select-amount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+  </div> <!-- /pump -->
+
+  <div class="pump">
+    <div class="pump-title">
+      <p>Pump 2:</p>
+      <div class="hr"></div>
+    </div>
+    <div class="form-control">
+      <h2>Drink:</h2>
+      <input type="text" name="drink" value="{{selectedDrink?.name}}">
+    </div>
+    <div class="form-control">
+      <h2>QTY:</h2>
+      <select class="select-amount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+  </div> <!-- /pump -->
+
+  <div class="pump">
+    <div class="pump-title">
+      <p>Pump 3:</p>
+      <div class="hr"></div>
+    </div>
+    <div class="form-control">
+      <h2>Drink:</h2>
+      <input type="text" name="drink" value="{{selectedDrink?.name}}">
+    </div>
+    <div class="form-control">
+      <h2>QTY:</h2>
+      <select class="select-amount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+  </div> <!-- /pump -->
+
+  <div class="pump">
+    <div class="pump-title">
+      <p>Pump 4:</p>
+      <div class="hr"></div>
+    </div>
+    <div class="form-control">
+      <h2>Drink:</h2>
+      <input type="text" name="drink" value="{{selectedDrink?.name}}">
+    </div>
+    <div class="form-control">
+      <h2>QTY:</h2>
+      <select class="select-amount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+  </div> <!-- /pump -->
+
+  <div class="pump">
+    <div class="pump-title">
+      <p>Pump 5:</p>
+      <div class="hr"></div>
+    </div>
+    <div class="form-control">
+      <h2>Drink:</h2>
+      <input type="text" name="drink" value="{{selectedDrink?.name}}">
+    </div>
+    <div class="form-control">
+      <h2>QTY:</h2>
+      <select class="select-amount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </div>
+  </div> <!-- /pump -->
+
+  <div class="loading-button">
+    <button type="submit" id="loading-checkbox"></button>
+    <label for="loading-checkbox"></label>
+  </div>
+
+  <div class="back-button" (click)="goBack()">BACK</div>
+
 </form>
-<h1>get one drink by id</h1>
-<form #getDrinkForm="ngForm" (ngSubmit)="getOneDrink(getDrinkForm); false">
-  <label for="id">ID</label>
-  <input type="text" name="id" ngModel>
-  <button type="submit">Submit</button>
-</form>
-<div class="back-button" (click)="goBack()">BACK</div>

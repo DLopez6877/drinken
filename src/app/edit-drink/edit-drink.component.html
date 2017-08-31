@@ -14,13 +14,23 @@
 
   <button type="button" class="delete" (click)="deleteDrink()">DELETE</button>
 
+  <!-- NAME -->
+  <div class="section-title">
+    <h2>NAME YOUR DRINK</h2>
+  </div>
+  <div class="form-control">
+    <h2 for="name">Name:</h2>
+    <input type="text" name="name" ngModel>
+  </div>
+
   <!-- IMAGE -->
   <div class="section-title">
     <h2>CHOOSE IMAGE</h2>
   </div>
-
-  <label for="image">Enter image url:</label>
-  <input type="text" name="image" value="{{selectedDrink?.img}}" placeholder="http://example-image.com">
+  <div class="form-control">
+    <h2>Enter image url:</h2>
+    <input type="text" name="image" value="{{selectedDrink?.img}}" placeholder="http://example-image.com">
+  </div>
 
   <!-- INGREDIENTS -->
   <div class="section-title">
