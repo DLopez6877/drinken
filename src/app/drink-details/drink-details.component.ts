@@ -53,8 +53,10 @@ export class DrinkDetailsComponent implements OnInit {
       console.log("Pouring Small Drink")
     } else if (this.selectedMedium === true) {
       console.log("Pouring Medium Drink")
-    } else {
+    } else if (this.selectedLarge === true) {
       console.log("Pouring Large Drink")
+    } else {
+      alert("please select a size")
     }
     console.log(this.drinkToDisplay);
   }

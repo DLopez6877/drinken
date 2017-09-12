@@ -19,8 +19,16 @@ export class AddDrinkComponent implements OnInit {
     });
   }
 
+  createRange(number){
+    var items: number[] = [];
+    for(var i = 1; i <= number; i++){
+       items.push(i);
+    }
+    return items;
+  }
+
   createDrink(form: NgForm) {
-    var newDrink = new Drink(form.value.name, form.value.img, [form.value.ingredients]);
+    var newDrink = new Drink(form.value.name, form.value.img, [form.value.ingredient1, form.value.amt1, form.value.ingredient2, form.value.ingredient3, form.value.ingredient4, form.value.ingredient5]);
     this.api.createNewDrink(newDrink).subscribe((res) => {
       console.log(res);
     });

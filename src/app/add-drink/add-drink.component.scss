@@ -12,7 +12,7 @@ form {
     margin: 15px 0;
   }
   .loading-button {
-    @include loading-button("save changes", "changes made", 1s);
+    @include loading-button("Add Drink", "Drink added", 1s);
     margin: 40px 0;
     align-self: center;
     transform: translateX(5px);

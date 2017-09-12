@@ -16,7 +16,10 @@ let drinkSchema = new mongoose.Schema({
     unique: true
   },
   img: String,
-  ingredients: Array
+  ingredients: [{
+    drink: String,
+    amt: Number
+  }]
 }, {collection: 'drinks'});
 
 let Drink = mongoose.model('drink', drinkSchema);

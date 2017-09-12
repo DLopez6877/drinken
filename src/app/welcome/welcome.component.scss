@@ -18,6 +18,9 @@ div .hidden {
   @extend %center;
   flex-direction: column;
   justify-content: space-between;
+  img {
+    margin-top: 70px;
+  }
 }
 
 .title {
@@ -27,7 +30,6 @@ div .hidden {
 
 .hamburger {
   @extend %hamburger;
-  align-self: flex-end;
 }
 
 .hamburger-x {
