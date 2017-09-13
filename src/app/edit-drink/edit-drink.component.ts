@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { NgForm } from '@angular/forms';
+
 import { Drink } from '../drink.model';
 
 @Component({
@@ -19,6 +20,14 @@ export class EditDrinkComponent implements OnInit {
     this.getAllDrinks();
   }
 
+  createRange(number){
+    var items: number[] = [];
+    for(var i = 1; i <= number; i++){
+       items.push(i);
+    }
+    return items;
+  }
+
   getAllDrinks() {
     this.api.getAllDrinks().subscribe(res => {
       this.drinks = res.json();
@@ -26,8 +35,11 @@ export class EditDrinkComponent implements OnInit {
     });
   }
 
-  editDrink(form: NgForm) {
-    console.log('drink edited');
+  updateDrink(drinkToUpdate: Drink) {
+    // this.api.updateDrink(drinkToUpdate.$_id).subscribe(res => {
+    //   console.log(res);
+    // });
+    console.log('working?');
   }
 
   onChange(selectedDrink) {

@@ -27,7 +27,7 @@ export class AddDrinkComponent implements OnInit {
     return items;
   }
 
-  createDrink(form: NgForm) {
+  submitForm(form: NgForm) {
     var ingredients = [
       {drink: form.value.ingredient1, amt:form.value.amt1},
       {drink: form.value.ingredient2, amt:form.value.amt2},
@@ -35,7 +35,7 @@ export class AddDrinkComponent implements OnInit {
       {drink: form.value.ingredient4, amt:form.value.amt4},
       {drink: form.value.ingredient5, amt:form.value.amt5},
     ];
-    
+
     var newDrink = new Drink(form.value.name, form.value.img, ingredients);
     this.api.createNewDrink(newDrink).subscribe((res) => {
       console.log(res);

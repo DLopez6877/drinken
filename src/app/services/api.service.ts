@@ -25,4 +25,8 @@ export class ApiService {
     return this.http.get(`${this.baseURI}/deletedrink/${id}`);
   }
 
+  updateDrink(id: string) {
+    return this.http.get(`${this.baseURI}/updatedrink/${id}`);
+  }
+
 }

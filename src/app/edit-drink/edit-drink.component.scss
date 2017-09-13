@@ -10,7 +10,7 @@ select {
   @include linear-gradient(white, lightgrey);
 }
 
-form {
+.form {
   @extend %container;
   @extend %center;
   flex-direction: column;

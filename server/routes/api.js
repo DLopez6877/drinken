@@ -56,6 +56,23 @@ router.post('/updatedrink', (req, res) => {
   });
 });
 
+// router.get('/updatedrink/:name', (req, res) => {
+//   Drink.findOneAndUpdate({name: req.body.name},
+//     {
+//       name: req.body.name,
+//       img: req.body.img,
+//       ingredients: req.body.ingredients
+//     },
+//     function (err, drink) {
+//       if (drink) {
+//         console.log("update drink");
+//         res.send(drink);
+//       }
+//     }
+//   )
+//
+// });
+
 //Delete drink
 router.get('/deletedrink/:name', (req, res) => {
   Drink.find({name: req.params.name}).remove(() => {

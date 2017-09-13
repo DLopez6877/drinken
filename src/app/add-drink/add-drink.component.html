@@ -1,7 +1,7 @@
 <div class="section-header">
   <h1>ADD A DRINK</h1>
 </div>
-<form #addDrinkForm="ngForm" (ngSubmit)="createDrink(addDrinkForm); false">
+<form #addDrinkForm="ngForm" (ngSubmit)="submitForm(addDrinkForm); false">
   <!-- NAME -->
   <div class="section-title">
     <h2>NAME YOUR DRINK</h2>
@@ -17,7 +17,7 @@
   </div>
   <div class="form-control">
     <h2>Enter image url:</h2>
-    <input type="text" name="img" ngModel placeholder="http://example-image.com">
+    <input type="text" name="img" ngModel>
   </div>
 
   <!-- INGREDIENTS -->
@@ -37,6 +37,7 @@
     <div class="form-control">
       <h2>QTY:</h2>
       <select class="select-amount" name="amt{{item}}" ngModel>
+        <option [ngValue]="0">0</option>
         <option [ngValue]="1">1</option>
         <option [ngValue]="2">2</option>
         <option [ngValue]="3">3</option>
