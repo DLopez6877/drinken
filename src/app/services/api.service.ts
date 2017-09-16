@@ -33,4 +33,10 @@ export class ApiService {
     return this.http.get(`${this.baseURI}/testpump`);
   }
 
+  pourDrink(ingredients, size)
+  {
+    console.log('pourdrink service');
+    return this.http.get(`${this.baseURI}/pourdrink`);
+  }
+
 }

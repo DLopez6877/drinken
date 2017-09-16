@@ -26,6 +26,7 @@ function pourDrink(ingredients, size) {
 };
 
 function divide50ByTotalSum(ingredients) {
+  console.log('divide50ByTotalSum');
   var totalSum;
   for (var i in ingredients) {
     totalSum += ingredients[i].amt;
@@ -35,6 +36,7 @@ function divide50ByTotalSum(ingredients) {
 }
 
 function calculateDuration(amt, multiplier, size) {
+  console.log('calculateDuration');
   var duration;
   if ( size === "small") {
     duration = amt * multiplier * 2;
@@ -47,6 +49,7 @@ function calculateDuration(amt, multiplier, size) {
 }
 
 function determinePump(counter) {
+  console.log('determinePump');
   if (counter === 0) {
     // pump0 = new five.Led(7);
     return pump0;
@@ -66,11 +69,15 @@ function determinePump(counter) {
 }
 
 function pump(pump, delay) {
-  pump0.on();
+  console.log('pump');
+  pump.on();
   setTimeout(function(){
-    pump0.off();
+    pump.off();
   }, delay);
-  // return pump0;
+}
+
+function testPump() {
+  pump0.blink();
 }
 
 module.exports = {
@@ -79,5 +86,6 @@ module.exports = {
   calculateDuration: calculateDuration,
   divide50ByTotalSum: divide50ByTotalSum,
   pourDrink: pourDrink,
+  testPump: testPump,
   board: board
 }

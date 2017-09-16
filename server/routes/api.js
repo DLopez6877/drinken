@@ -67,18 +67,24 @@ router.post('/updatedrink', (req, res) => {
   });
 });
 
-//test pump
-router.get('/testpump', (req, res) => {
-  controller.pump(pump0, 1000);
-  // if (err) { res.send(err); }
-  res.send('done')
-});
-
 //Delete drink
 router.get('/deletedrink/:name', (req, res) => {
   Drink.find({name: req.params.name}).remove(() => {
     res.send('done');
   });
 });
+
+//Test Pump
+router.get('/testpump', (req, res) => {
+  controller.testPump();
+  res.send('done');
+});
+
+//Pour Drink
+router.get('/pourdrink'), (req, res) => {
+  console.log('pourdrink router');
+  controller.pourDrink(ingredients, size);
+  res.send('done');
+}
 
 module.exports = router;
