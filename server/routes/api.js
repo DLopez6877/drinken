@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
+var five = require('johnny-five');
 var mongoose = require('mongoose');
+var controller = require('../../public/js/robot.js');
+
+var board, pump0, pump1, pump2, pump3, pump4;
+
+board = controller.board;
 
 mongoose.connect('mongodb://localhost:27017/drinken');
 var db = mongoose.connection;
@@ -50,7 +55,8 @@ router.get('/getdrink/:name', (req,res) => {
 
 //Update Drink in DB
 router.post('/updatedrink', (req, res) => {
-  Drink.update({_id: req.body.id}, req.body, (err, data) => {
+  console.log(req.body);
+  Drink.update({_id: req.body._id}, req.body, (err, data) => {
     if (err) { res.send(err); }
     res.send(data);
   });

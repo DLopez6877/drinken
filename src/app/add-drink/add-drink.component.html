@@ -8,7 +8,7 @@
   </div>
   <div class="form-control">
     <h2 for="name">Name:</h2>
-    <input type="text" name="name" ngModel>
+    <input type="text" name="name" ngModel class="name-input">
   </div>
 
   <!-- IMAGE -->
@@ -17,7 +17,7 @@
   </div>
   <div class="form-control">
     <h2>Enter image url:</h2>
-    <input type="text" name="img" ngModel>
+    <input type="text" name="img" ngModel class="image-input">
   </div>
 
   <!-- INGREDIENTS -->
@@ -25,32 +25,34 @@
     <h2>INGREDIENTS</h2>
   </div>
 
-  <div class="pump" *ngFor="let item of createRange(5)">
-    <div class="pump-title">
-      <p>Pump {{item}}:</p>
-      <div class="hr"></div>
-    </div>
-    <div class="form-control">
-      <h2>Drink:</h2>
-      <input type="text" name="ingredient{{item}}" ngModel>
-    </div>
-    <div class="form-control">
-      <h2>QTY:</h2>
-      <select class="select-amount" name="amt{{item}}" ngModel>
-        <option [ngValue]="0">0</option>
-        <option [ngValue]="1">1</option>
-        <option [ngValue]="2">2</option>
-        <option [ngValue]="3">3</option>
-        <option [ngValue]="4">4</option>
-        <option [ngValue]="5">5</option>
-        <option [ngValue]="6">6</option>
-        <option [ngValue]="7">7</option>
-        <option [ngValue]="8">8</option>
-        <option [ngValue]="9">9</option>
-        <option [ngValue]="10">10</option>
-      </select>
-    </div>
-  </div> <!-- /pump -->
+  <div class="pumps">
+    <div class="pump" *ngFor="let item of createRange(5)">
+      <div class="pump-title">
+        <p>Pump {{item}}:</p>
+        <div class="hr"></div>
+      </div>
+      <div class="form-control">
+        <h2>Drink:</h2>
+        <input type="text" name="ingredient{{item}}" ngModel>
+      </div>
+      <div class="form-control">
+        <h2>QTY:</h2>
+        <select class="select-amount" name="amt{{item}}" ngModel>
+          <option [ngValue]="0">0</option>
+          <option [ngValue]="1">1</option>
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="3">3</option>
+          <option [ngValue]="4">4</option>
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="6">6</option>
+          <option [ngValue]="7">7</option>
+          <option [ngValue]="8">8</option>
+          <option [ngValue]="9">9</option>
+          <option [ngValue]="10">10</option>
+        </select>
+      </div>
+    </div> <!-- /pump -->
+  </div>
 
   <div class="loading-button">
     <button type="submit" id="loading-checkbox"></button>

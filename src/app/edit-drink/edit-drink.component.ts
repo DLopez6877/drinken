@@ -22,7 +22,7 @@ export class EditDrinkComponent implements OnInit {
 
   createRange(number){
     var items: number[] = [];
-    for(var i = 1; i <= number; i++){
+    for(var i = 0; i < number; i++){
        items.push(i);
     }
     return items;
@@ -31,14 +31,30 @@ export class EditDrinkComponent implements OnInit {
   getAllDrinks() {
     this.api.getAllDrinks().subscribe(res => {
       this.drinks = res.json();
+      console.log(this.convertAmountsToString(this.drinks));
       this.selectedDrink = this.drinks[0];
     });
   }
 
+  convertAmountsToString(drinks: Drink[]) {
+    var output = [];
+    drinks.forEach((drink) => {
+      var newIngredientArray = drink.ingredients.map((ingredient) => {
+        if (ingredient) {
+          ingredient.amt = ingredient.amt.toString();
+          return ingredient;
+        }
+      });
+      drink.ingredients = newIngredientArray;
+      output.push(drink);
+    });
+    return output;
+  }
+
   updateDrink(drinkToUpdate: Drink) {
-    // this.api.updateDrink(drinkToUpdate.$_id).subscribe(res => {
-    //   console.log(res);
-    // });
+    this.api.updateDrink(this.selectedDrink).subscribe(res => {
+      console.log(res);
+    });
     console.log('working?');
   }
 
@@ -61,6 +77,12 @@ export class EditDrinkComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  toString(num) {
+    if (num !== null) {
+      return num.toString();
+    }
   }
 
 }

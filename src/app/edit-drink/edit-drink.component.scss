@@ -6,8 +6,11 @@
 
 select {
   height: 35px;
-  width: 100%;
+  width: 330px;
   @include linear-gradient(white, lightgrey);
+  @media (min-width: 900px) {
+    width: 640px;
+  }
 }
 
 .form {
@@ -41,9 +44,18 @@ select {
 
 // PUMPS
 
+.pumps {
+  @media (min-width: 900px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .pump {
   display: flex;
   flex-direction: column;
+  margin: 0px 10px;
 }
 
 .pump-title {
@@ -84,6 +96,11 @@ select {
     height: 35px;
     @include linear-gradient(white, lightgrey);
     margin-left: 20px;
+  }
+  .top-input {
+    @media (min-width: 900px) {
+      width: 550px;
+    }
   }
 }
 

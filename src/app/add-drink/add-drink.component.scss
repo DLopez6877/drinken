@@ -23,9 +23,18 @@ form {
   @extend %section-title;
 }
 
+.pumps {
+  @media (min-width: 900px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .pump {
   display: flex;
   flex-direction: column;
+  margin: 0px 10px;
 }
 
 .pump-title {
@@ -66,6 +75,16 @@ form {
     height: 35px;
     @include linear-gradient(white, lightgrey);
     margin-left: 20px;
+  }
+  .name-input {
+    @media (min-width: 900px) {
+      width: 540px;
+    }
+  }
+  .image-input {
+    @media (min-width: 900px) {
+      width: 450px;
+    }
   }
 }
 

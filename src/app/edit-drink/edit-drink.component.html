@@ -1,68 +1,73 @@
 <div class="section-header">
   <h1>EDIT A DRINK</h1>
 </div>
-<div class="form">
+<div *ngIf="selectedDrink">
 
-  <!-- SELECT -->
-  <div class="section-title">
-    <h2>SELECT A DRINK</h2>
-  </div>
+  <div class="form">
 
-  <select (change)="onChange($event.target.value)">
-    <option *ngFor="let drink of drinks" value="{{drink.name}}">{{drink.name}}</option>
-  </select>
-
-  <button type="button" class="delete" (click)="deleteDrink()">DELETE</button>
-
-  <!-- NAME -->
-  <div class="form-control">
-    <h2 for="name">Name:</h2>
-    <input [(ngModel)]="selectedDrink.name">
-  </div>
-
-  <!-- IMAGE -->
-  <div class="form-control">
-    <h2>Image:</h2>
-    <input [(ngModel)]="selectedDrink.img">
-  </div>
-
-  <!-- INGREDIENTS -->
-  <div class="section-title">
-    <h2>INGREDIENTS</h2>
-  </div>
-
-  <div class="pump" *ngFor="let item of createRange(4)">
-    <div class="pump-title">
-      <p>Pump {{item}}:</p>
-      <div class="hr"></div>
+    <!-- SELECT -->
+    <div class="section-title">
+      <h2>SELECT A DRINK</h2>
     </div>
+
+    <select (change)="onChange($event.target.value)">
+      <option *ngFor="let drink of drinks" value="{{drink.name}}">{{drink.name}}</option>
+    </select>
+
+    <button type="button" class="delete" (click)="deleteDrink()">DELETE</button>
+
+    <!-- NAME -->
     <div class="form-control">
-      <h2>Drink:</h2>
-      <input *ngIf="selectedDrink.ingredients[item].drink!=null" [(ngModel)]="selectedDrink.ingredients[item].drink">
+      <h2 for="name">Name:</h2>
+      <input [(ngModel)]="selectedDrink.name" class="top-input">
     </div>
+
+    <!-- IMAGE -->
     <div class="form-control">
-      <h2>QTY:</h2>
-      <select class="select-amount" name="amt{{item}}" ngModel>
-        <option [ngValue]="0">0</option>
-        <option [ngValue]="1">1</option>
-        <option [ngValue]="2">2</option>
-        <option [ngValue]="3">3</option>
-        <option [ngValue]="4">4</option>
-        <option [ngValue]="5">5</option>
-        <option [ngValue]="6">6</option>
-        <option [ngValue]="7">7</option>
-        <option [ngValue]="8">8</option>
-        <option [ngValue]="9">9</option>
-        <option [ngValue]="10">10</option>
-      </select>
+      <h2>Image:</h2>
+      <input [(ngModel)]="selectedDrink.img" class="top-input">
     </div>
-  </div> <!-- /pump -->
 
-  <div class="loading-button">
-    <button type="button" id="loading-checkbox" (click)="updateDrink(selectedDrink)"></button>
-    <label for="loading-checkbox"></label>
+    <!-- INGREDIENTS -->
+    <div class="section-title">
+      <h2>INGREDIENTS</h2>
+    </div>
+
+    <div class="pumps">
+      <div class="pump" *ngFor="let item of createRange(5)">
+        <div class="pump-title">
+          <p>Pump {{item + 1}}:</p>
+          <div class="hr"></div>
+        </div>
+        <div class="form-control" *ngIf="selectedDrink.ingredients[item] != undefined">
+          <h2>Drink:</h2>
+          <input [(ngModel)]="selectedDrink.ingredients[item].drink">
+        </div>
+        <div class="form-control">
+          <h2>QTY:</h2>
+          <select class="select-amount" name="amt{{item}}" [value]="selectedDrink.ingredients[item].amt" [(ngModel)]="selectedDrink.ingredients[item].amt" *ngIf="selectedDrink.ingredients[item] != undefined">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div> <!-- /pump -->
+    </div>
+
+    <div class="loading-button">
+      <button type="button" id="loading-checkbox" (click)="updateDrink(selectedDrink)"></button>
+      <label for="loading-checkbox"></label>
+    </div>
+
+    <div class="back-button" (click)="goBack()">BACK</div>
+
   </div>
-
-  <div class="back-button" (click)="goBack()">BACK</div>
-
 </div>
