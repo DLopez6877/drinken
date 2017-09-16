@@ -66,10 +66,11 @@ function determinePump(counter) {
 }
 
 function pump(pump, delay) {
-  pump.on();
-  setTimeout({
-    pump.off()
+  pump0.on();
+  setTimeout(function(){
+    pump0.off();
   }, delay);
+  // return pump0;
 }
 
 module.exports = {
@@ -78,5 +79,5 @@ module.exports = {
   calculateDuration: calculateDuration,
   divide50ByTotalSum: divide50ByTotalSum,
   pourDrink: pourDrink,
-  board: new five.board()
+  board: board
 }

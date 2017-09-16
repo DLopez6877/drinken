@@ -7,6 +7,11 @@ var controller = require('../../public/js/robot.js');
 var board, pump0, pump1, pump2, pump3, pump4;
 
 board = controller.board;
+pump0 = controller.pump0;
+pump1 = controller.pump1;
+pump2 = controller.pump2;
+pump3 = controller.pump3;
+pump4 = controller.pump4;
 
 mongoose.connect('mongodb://localhost:27017/drinken');
 var db = mongoose.connection;
@@ -62,22 +67,12 @@ router.post('/updatedrink', (req, res) => {
   });
 });
 
-// router.get('/updatedrink/:name', (req, res) => {
-//   Drink.findOneAndUpdate({name: req.body.name},
-//     {
-//       name: req.body.name,
-//       img: req.body.img,
-//       ingredients: req.body.ingredients
-//     },
-//     function (err, drink) {
-//       if (drink) {
-//         console.log("update drink");
-//         res.send(drink);
-//       }
-//     }
-//   )
-//
-// });
+//test pump
+router.get('/testpump', (req, res) => {
+  controller.pump(pump0, 1000);
+  // if (err) { res.send(err); }
+  res.send('done')
+});
 
 //Delete drink
 router.get('/deletedrink/:name', (req, res) => {

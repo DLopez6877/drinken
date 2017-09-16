@@ -51,6 +51,9 @@ export class DrinkDetailsComponent implements OnInit {
   pourDrink(){
     if (this.selectedSmall === true) {
       console.log("Pouring Small Drink")
+      this.api.testPump().subscribe(res => {
+        console.log(res);
+      });
     } else if (this.selectedMedium === true) {
       console.log("Pouring Medium Drink")
     } else if (this.selectedLarge === true) {

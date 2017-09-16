@@ -29,4 +29,8 @@ export class ApiService {
     return this.http.post(`${this.baseURI}/updatedrink`, drink);
   }
 
+  testPump() {
+    return this.http.get(`${this.baseURI}/testpump`);
+  }
+
 }
