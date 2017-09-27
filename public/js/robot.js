@@ -13,79 +13,54 @@ board.on('ready', function () {
   console.log("Drinken Ready");
 });
 
-function pourDrink(ingredients, size) {
-  console.log("Dispensing Drink");
-  var counter;
-  var multiplier = divide50ByTotalSum(ingredients);
-  for (var i in ingredients) {
-    var ms = calculateDuration(ingredients[i].amt, multiplier, size);
-    var activePump = determinePump(counter);
-    pump(activePump, ms);
-    counter++;
-  }
-};
-
-function divide50ByTotalSum(ingredients) {
-  console.log('divide50ByTotalSum');
-  var totalSum;
-  for (var i in ingredients) {
-    totalSum += ingredients[i].amt;
-  }
-  var multiplier = 50 / totalSum;
-  return multiplier;
-}
-
-function calculateDuration(amt, multiplier, size) {
-  console.log('calculateDuration');
-  var duration;
-  if ( size === "small") {
-    duration = amt * multiplier * 2;
-  } else if ( size === "medium") {
-    duration = amt * multiplier * 4;
-  } else {
-    duration = amt * multiplier * 10;
-  }
-  return duration;
-}
-
-function determinePump(counter) {
-  console.log('determinePump');
-  if (counter === 0) {
-    // pump0 = new five.Led(7);
-    return pump0;
-  } else if (counter === 1) {
-    // pump0 = new five.Led(6);
-    return pump1;
-  } else if (counter === 2) {
-    // pump0 = new five.Led(5);
-    return pump2;
-  } else if (counter === 3) {
-    // pump0 = new five.Led(4);
-    return pump3;
-  } else {
-    // pump0 = new five.Led(3);
-    return pump4;
+function pourDrink(pump) {
+  console.log(pump + " pumping");
+  if (pump === "pump0") {
+    pump0.on();
+  } else if (pump === "pump1") {
+    pump1.on();
+  } else if (pump === "pump2") {
+    pump2.on();
+  } else if (pump === "pump3") {
+    pump3.on();
+  } else if (pump === "pump4") {
+    pump4.on();
   }
 }
 
-function pump(pump, delay) {
-  console.log('pump');
-  pump.on();
-  setTimeout(function(){
-    pump.off();
-  }, delay);
+function stopPump(pump) {
+  console.log(pump + ' has stopped');
+  if (pump === "pump0") {
+    pump0.off();
+  } else if (pump === "pump1") {
+    pump1.off();
+  } else if (pump === "pump2") {
+    pump2.off();
+  } else if (pump === "pump3") {
+    pump3.off();
+  } else if (pump === "pump4") {
+    pump4.off();
+  }
 }
 
 function testPump() {
-  pump0.blink();
+  pump0.on();
+  pump1.on();
+  pump2.on();
+  pump3.on();
+  // pump4.on();
+  setTimeout(function(){
+    pump0.off()
+    pump1.off();
+    pump2.off();
+    pump3.off();
+    // pump4.off();
+  }, 10000);
 }
 
 module.exports = {
-  pump: pump,
-  determinePump: determinePump,
-  calculateDuration: calculateDuration,
-  divide50ByTotalSum: divide50ByTotalSum,
   pourDrink: pourDrink,
+  stopPump: stopPump,
   testPump: testPump,
   board: board
 }

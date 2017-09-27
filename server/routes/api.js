@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/drinken');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-   console.log('db connected')
+   console.log('db connected');
 });
 
 let drinkSchema = new mongoose.Schema({
@@ -60,7 +60,6 @@ router.get('/getdrink/:name', (req,res) => {
 
 //Update Drink in DB
 router.post('/updatedrink', (req, res) => {
-  console.log(req.body);
   Drink.update({_id: req.body._id}, req.body, (err, data) => {
     if (err) { res.send(err); }
     res.send(data);
@@ -81,10 +80,17 @@ router.get('/testpump', (req, res) => {
 });
 
 //Pour Drink
-router.get('/pourdrink'), (req, res) => {
-  console.log('pourdrink router');
-  controller.pourDrink(ingredients, size);
+router.get('/pourdrink/:selectedPump', (req, res) => {
+  console.log(req.params.selectedPump);
+  controller.pourDrink(req.params.selectedPump);
   res.send('done');
-}
+});
+
+//Stop Pump
+router.get('/stoppump/:selectedPump', (req, res) => {
+  console.log(req.params.selectedPump + " stop");
+  controller.stopPump(req.params.selectedPump);
+  res.send('done');
+});
 
 module.exports = router;
