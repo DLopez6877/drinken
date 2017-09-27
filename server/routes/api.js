@@ -1,17 +1,10 @@
 const express = require('express');
 const router = express.Router();
-var five = require('johnny-five');
 var mongoose = require('mongoose');
+var querystring = require('querystring');
+
+var five = require('johnny-five');
 var controller = require('../../public/js/robot.js');
-
-var board, pump0, pump1, pump2, pump3, pump4;
-
-board = controller.board;
-pump0 = controller.pump0;
-pump1 = controller.pump1;
-pump2 = controller.pump2;
-pump3 = controller.pump3;
-pump4 = controller.pump4;
 
 mongoose.connect('mongodb://localhost:27017/drinken');
 var db = mongoose.connection;
@@ -80,16 +73,8 @@ router.get('/testpump', (req, res) => {
 });
 
 //Pour Drink
-router.get('/pourdrink/:selectedPump', (req, res) => {
-  console.log(req.params.selectedPump);
-  controller.pourDrink(req.params.selectedPump);
-  res.send('done');
-});
-
-//Stop Pump
-router.get('/stoppump/:selectedPump', (req, res) => {
-  console.log(req.params.selectedPump + " stop");
-  controller.stopPump(req.params.selectedPump);
+router.get('/pourdrink/:parameters', (req, res) => {
+  controller.pourDrink(req.params.parameters);
   res.send('done');
 });
 

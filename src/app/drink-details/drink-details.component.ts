@@ -50,22 +50,16 @@ export class DrinkDetailsComponent implements OnInit {
 
   pourDrink(ingredients){
     if (this.selectedSmall === true) {
-      var counter = 0;
-      var that = this;
+      var pumpCounter = 0;
       var multiplier = this.divide50ByTotalSum(ingredients);
       for (var i in ingredients) {
         var delay = this.calculateDuration(ingredients[i].amt, multiplier, 'small');
-        var activePump = this.determinePump(counter);
-        this.api.pourDrink(activePump).subscribe(res => {
+        var pump = this.determinePump(pumpCounter);
+        var parameters = { 'delay': delay, 'pump': pump };
+        this.api.pourDrink(parameters).subscribe(res => {
           console.log(res);
         });
-        setTimeout(function(){
-          that.api.stopPump(activePump).subscribe(res => {
-            console.log(res);
-          });
-        }, delay);
-
-        counter++;
+        pumpCounter++;
       }
 
     } else if (this.selectedMedium === true) {
@@ -97,13 +91,13 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   calculateDuration(amt, multiplier, size) {
-    var duration;
+    var duration; //1 = 50seconds
     if ( size === "small") {
-      duration = amt * multiplier * .5;
+      duration = amt * multiplier * .5; //10 seconds total
     } else if ( size === "medium") {
-      duration = amt * multiplier * 1.25;
+      duration = amt * multiplier * .5; //25 seconds
     } else {
-      duration = amt * multiplier * 2;
+      duration = amt * multiplier * 1; //50 seconds
     }
 
     duration = duration * 1000; //convert to ms

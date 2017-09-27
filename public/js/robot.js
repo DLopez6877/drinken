@@ -13,34 +13,19 @@ board.on('ready', function () {
   console.log("Drinken Ready");
 });
 
-function pourDrink(pump) {
-  console.log(pump + " pumping");
-  if (pump === "pump0") {
-    pump0.on();
-  } else if (pump === "pump1") {
-    pump1.on();
-  } else if (pump === "pump2") {
-    pump2.on();
-  } else if (pump === "pump3") {
-    pump3.on();
-  } else if (pump === "pump4") {
-    pump4.on();
-  }
-}
-
-function stopPump(pump) {
-  console.log(pump + ' has stopped');
-  if (pump === "pump0") {
-    pump0.off();
-  } else if (pump === "pump1") {
-    pump1.off();
-  } else if (pump === "pump2") {
-    pump2.off();
-  } else if (pump === "pump3") {
-    pump3.off();
-  } else if (pump === "pump4") {
-    pump4.off();
-  }
+function pourDrink(parameters) {
+  console.log(parameters + " reached robot.js");
+  // if (pump === "pump0") {
+  //   pump0.on();
+  // } else if (pump === "pump1") {
+  //   pump1.on();
+  // } else if (pump === "pump2") {
+  //   pump2.on();
+  // } else if (pump === "pump3") {
+  //   pump3.on();
+  // } else if (pump === "pump4") {
+  //   pump4.on();
+  // }
 }
 
 function testPump() {
@@ -60,7 +45,5 @@ function testPump() {
 
 module.exports = {
   pourDrink: pourDrink,
-  stopPump: stopPump,
-  testPump: testPump,
-  board: board
+  testPump: testPump
 }
