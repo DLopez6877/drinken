@@ -73,8 +73,9 @@ router.get('/testpump', (req, res) => {
 });
 
 //Pour Drink
-router.get('/pourdrink/:parameters', (req, res) => {
-  controller.pourDrink(req.params.parameters);
+router.get('/pourdrink', (req, res) => {
+  console.log(req.params);
+  controller.pourDrink(req.params);
   res.send('done');
 });
 

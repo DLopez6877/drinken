@@ -33,9 +33,9 @@ export class ApiService {
     return this.http.get(`${this.baseURI}/testpump`);
   }
 
-  pourDrink(parameters: any) {
-    console.log(parameters);
-    return this.http.get(`${this.baseURI}/pourdrink/${parameters}`);
+  pourDrink(querystring: string) {
+    console.log(`${this.baseURI}/pourdrink/${querystring}`);
+    return this.http.get(`${this.baseURI}/pourdrink/${querystring}`);
   }
 
 

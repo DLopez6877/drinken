@@ -17,6 +17,7 @@ export class DrinkDetailsComponent implements OnInit {
   selectedSmall: boolean = false;
   selectedMedium: boolean = false;
   selectedLarge: boolean = false;
+  selectedSize: string = null;
 
   constructor(private api: ApiService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
@@ -39,6 +40,7 @@ export class DrinkDetailsComponent implements OnInit {
     this.selectedSmall = false;
     this.selectedMedium = false;
     this.selectedLarge = false;
+    this.selectedSize = size;
     if (size === "small") {
       this.selectedSmall = true;
     } else if (size === "medium") {
@@ -49,33 +51,19 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   pourDrink(ingredients){
-    if (this.selectedSmall === true) {
+    if (this.selectedSize != null) {
       var pumpCounter = 0;
       var multiplier = this.divide50ByTotalSum(ingredients);
       for (var i in ingredients) {
-        var delay = this.calculateDuration(ingredients[i].amt, multiplier, 'small');
-        var pump = this.determinePump(pumpCounter);
-        var parameters = { 'delay': delay, 'pump': pump };
-        this.api.pourDrink(parameters).subscribe(res => {
+        var querystring = '?delay=';
+        querystring += this.calculateDuration(ingredients[i].amt, multiplier, this.selectedSize);
+        querystring += "&selectedPump=";
+        querystring += this.determinePump(pumpCounter);
+        this.api.pourDrink(querystring).subscribe(res => {
           console.log(res);
         });
         pumpCounter++;
       }
-
-    } else if (this.selectedMedium === true) {
-
-      // console.log("Pouring Medium Drink");
-      // this.api.pourMediumDrink(this.drinkToDisplay).subscribe(res => {
-      //   console.log(res);
-      // });
-
-    } else if (this.selectedLarge === true) {
-
-      // console.log("Pouring Large Drink");
-      this.api.testPump().subscribe(res => {
-        console.log(res);
-      });
-
     } else {
       alert("please select a size");
     }
