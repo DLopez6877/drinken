@@ -55,7 +55,6 @@ export class EditDrinkComponent implements OnInit {
     this.api.updateDrink(this.selectedDrink).subscribe(res => {
       console.log(res);
     });
-    console.log('working?');
   }
 
   onChange(selectedDrink) {

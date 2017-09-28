@@ -54,15 +54,16 @@ export class DrinkDetailsComponent implements OnInit {
     if (this.selectedSize != null) {
       var pumpCounter = 0;
       var multiplier = this.divide50ByTotalSum(ingredients);
+      console.log('Pouring ' + this.selectedSize + ' drink. Recipe:');
       for (var i in ingredients) {
-        var querystring = '?delay=';
-        querystring += this.calculateDuration(ingredients[i].amt, multiplier, this.selectedSize);
-        querystring += "&selectedPump=";
-        querystring += this.determinePump(pumpCounter);
+        var delay = this.calculateDuration(ingredients[i].amt, multiplier, this.selectedSize);
+        var selectedPump = this.determinePump(pumpCounter);
+        var querystring = '?delay=' + delay + "&selectedPump=" + selectedPump;
         this.api.pourDrink(querystring).subscribe(res => {
           console.log(res);
         });
         pumpCounter++;
+        console.log(pumpCounter + ". " + ingredients[i].drink + ": " + delay + "ms");
       }
     } else {
       alert("please select a size");
