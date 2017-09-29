@@ -12,24 +12,24 @@ board.on('ready', function () {
   console.log("Drinken Ready");
 });
 
-function pourDrink(parameters) {
-  console.log(parameters + " reached robot.js");
-//   if (params.pump === "pump0") {
-//     pump0.on();
-//     setTimeout(function(){ pump0.off(); }, params.delay);
-//   } else if (params.pump === "pump1") {
-//     pump1.on();
-//     setTimeout(function(){ pump1.off(); }, params.delay);
-//   } else if (params.pump === "pump2") {
-//     pump2.on();
-//     setTimeout(function(){ pump2.off(); }, params.delay);
-//   } else if (params.pump === "pump3") {
-//     pump3.on();
-//     setTimeout(function(){ pump3.off(); }, params.delay);
-//   } else if (params.pump === "pump4") {
-//     pump4.on();
-//     setTimeout(function(){ pump4.off(); }, params.delay);
-//   }
+function pourDrink(params) {
+  console.log(params + " reached robot.js");
+  if (params.selectedPump === "pump0") {
+    pump0.on();
+    setTimeout(function(){ pump0.off(); }, params.delay);
+  } else if (params.selectedPump === "pump1") {
+    pump1.on();
+    setTimeout(function(){ pump1.off(); }, params.delay);
+  } else if (params.selectedPump === "pump2") {
+    pump2.on();
+    setTimeout(function(){ pump2.off(); }, params.delay);
+  } else if (params.selectedPump === "pump3") {
+    pump3.on();
+    setTimeout(function(){ pump3.off(); }, params.delay);
+  } else if (params.selectedPump === "pump4") {
+    pump4.on();
+    setTimeout(function(){ pump4.off(); }, params.delay);
+  }
 }
 
 function testPump() {

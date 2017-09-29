@@ -19,7 +19,7 @@
     height: 200px;
     border: 5px solid $dark-color;
   }
-  .edit {
+  .img-link {
     position: absolute;
     bottom: 5px;
     left: 50%;
@@ -31,14 +31,35 @@
     background-color: fade-out($light-color, .1);
     @extend %center;;
   }
-  .outer-border {
-    position: absolute;
-    left:50%;
-    transform: translateX(-50%);
-    background-color: inherit;
-    border: 5px solid $dark-color;
-    width: 320px; //image width + (border width * 4)
-    height: 220px; //image height + (border height * 4)
+  .ingredients {
+    text-align: center;
+    color: $dark-color;
+    transform: none;
+    left: 5px;
+    width: 80px;
+  }
+}
+
+.outer-border {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  background-color: inherit;
+  border: 5px solid $dark-color;
+  width: 320px; //image width + (border width * 4)
+  height: 220px; //image height + (border height * 4)
+}
+
+table {
+  margin-top: 20px;
+  text-align: center;
+  color: $dark-color;
+  border: 5px solid $dark-color;
+  padding: 10px;
+  min-width: 320px;
+  background-color: $secondary-color;
+  th {
+    text-decoration: underline;
   }
 }
 

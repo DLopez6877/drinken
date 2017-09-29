@@ -5,8 +5,22 @@
   <div class="drink-image">
     <div class="outer-border"></div>
     <img src="{{drinkToDisplay?.img}}" alt="drink">
-    <div class="edit" routerLink="/edit-drink"><p>edit</p></div>
+    <div class="img-link" routerLink="/edit-drink"><p>edit</p></div>
+    <div class="img-link ingredients" (click)="toggleIngredients()">ingredients</div>
   </div>
+
+  <table *ngIf="showIngredients">
+    <tr>
+      <th>Pump</th>
+      <th>Beverage</th>
+      <th>Amt</th>
+    </tr>
+    <tr *ngFor="let ingredient of drinkToDisplay?.ingredients; let i = index">
+      <td>{{i}}</td>
+      <td>{{ingredient.drink}}</td>
+      <td>{{ingredient.amt}}</td>
+    </tr>
+  </table>
 
   <div class="section-title">
     <h2>SELECT A SIZE</h2>

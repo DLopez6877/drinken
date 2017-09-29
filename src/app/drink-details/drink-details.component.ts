@@ -18,6 +18,7 @@ export class DrinkDetailsComponent implements OnInit {
   selectedMedium: boolean = false;
   selectedLarge: boolean = false;
   selectedSize: string = null;
+  showIngredients: boolean = false;
 
   constructor(private api: ApiService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
@@ -28,12 +29,18 @@ export class DrinkDetailsComponent implements OnInit {
 
     this.api.getOneDrink(this.drinkName).subscribe(res => {
       this.drinkToDisplay = res.json()[0];
+      console.log(this.drinkToDisplay);
     })
-
   }
 
   goBack() {
     window.history.back();
+  }
+
+  toggleIngredients() {
+    console.log(this.showIngredients);
+    this.showIngredients = !this.showIngredients;
+    console.log(this.showIngredients);
   }
 
   setSize(size: string) {
@@ -64,6 +71,7 @@ export class DrinkDetailsComponent implements OnInit {
         });
         pumpCounter++;
         console.log(pumpCounter + ". " + ingredients[i].drink + ": " + delay + "ms");
+        console.log(querystring);
       }
     } else {
       alert("please select a size");
