@@ -44,7 +44,6 @@ export class DrinkDetailsComponent implements OnInit {
 
     this.api.getOneDrink(this.drinkName).subscribe(res => {
       this.drinkToDisplay = res.json()[0];
-      console.log(this.drinkToDisplay);
     })
   }
 
@@ -86,8 +85,6 @@ export class DrinkDetailsComponent implements OnInit {
         console.log(pumpCounter + ". " + ingredients[i].drink + ": " + delay + "ms");
         console.log(querystring);
       }
-    } else {
-      alert("please select a size");
     }
   }
 

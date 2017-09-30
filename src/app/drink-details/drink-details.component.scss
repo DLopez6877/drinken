@@ -121,9 +121,83 @@ div .selected {
 }
 
 .loading-button {
-  @include loading-button("POUR MY DRINK", "DRINK made", 4s);
   margin: 55px 0;
   cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  button {
+    &:focus + label {
+      animation: loading-background 0.5s linear forwards;
+    }
+    &:focus + label::after {
+      animation: notLoading 0.5s linear forwards; //changes to 'loading'  with custom time when size selected
+    }
+  }
+
+  label {
+    background-color: red; //changes to #90FFD6 when size selected
+    display: block;
+    height: 0;
+    left: 50%;
+    margin-left: -154px; //width divided by 2 * -1
+    margin-top: -60px; //height divided by 2 * -1
+    position: relative;
+    text-align: center;
+    top: 50%;
+    vertical-align: middle;
+    width: 298px;
+
+    &::before {
+      background-color: $dark-color;
+      content: "";
+      display: block;
+      height: 61px; //height - (inner border width  * 2)
+      margin: 7px;
+      outline: 5px solid $dark-color;
+      outline-offset: 7px;
+      position: absolute;
+      width: 284px; //width - (inner border width * 2)
+    }
+
+    &::after {
+      content: "POUR DRINK";
+      line-height: 75px; //button height
+      position: relative;
+    }
+  }
+
+  @keyframes loading-background {
+    from {
+      height: 0;
+      margin-bottom: 0px;
+    }
+    to {
+      height: 75px;
+      margin-bottom: -75px;
+    }
+  }
+
+  @keyframes loading {
+    @for $i from 0 through 99 {
+      #{$i + '%'} {
+        content: $i + '%';
+      }
+      100% {
+        content: "DRINK MADE";
+      }
+    }
+  }
+
+  @keyframes notLoading {
+    @for $i from 0 through 99 {
+      #{$i + '%'} {
+        content: $i + '%';
+      }
+      100% {
+        content: "SELECT SIZE";
+      }
+    }
+  }
 }
 
 .back-button {

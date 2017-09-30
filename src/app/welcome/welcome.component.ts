@@ -19,7 +19,6 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
     this.api.getAllDrinks().subscribe(res => {
       this.drinks = res.json();
-      console.log(this.drinks);
     });
   }
 
