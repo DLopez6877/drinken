@@ -30,6 +30,7 @@ div .hidden {
 
 .hamburger {
   @extend %hamburger;
+  cursor: pointer;
 }
 
 .hamburger-x {
@@ -58,6 +59,7 @@ div .hidden {
 }
 
 .drink {
+  cursor: pointer;
   position: relative;
   margin-bottom: 10px;
   width: 300px;
@@ -112,6 +114,7 @@ div .hidden {
   }
   h1 {
     color: $primary-color;
+    cursor: pointer;
   }
   p {
     color: $dark-color;

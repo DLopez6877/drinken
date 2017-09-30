@@ -6,10 +6,10 @@
     <div class="outer-border"></div>
     <img src="{{drinkToDisplay?.img}}" alt="drink">
     <div class="img-link" routerLink="/edit-drink"><p>edit</p></div>
-    <div class="img-link ingredients" (click)="toggleIngredients()">ingredients</div>
+    <div class="img-link ingredients" (click)="toggleMove()">ingredients</div>
   </div>
 
-  <table *ngIf="showIngredients">
+  <table [@slideIn]='ingredientsVisibility'>
     <tr>
       <th>Pump</th>
       <th>Beverage</th>
@@ -42,7 +42,7 @@
   </div>
 
   <div class="loading-button">
-    <button type="submit" id="loading-checkbox" (click)="pourDrink(drinkToDisplay.ingredients)"></button>
+    <button type="submit" id="loading-checkbox"></button>
     <label for="loading-checkbox"></label>
   </div>
 

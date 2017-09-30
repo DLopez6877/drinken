@@ -11,6 +11,7 @@ select {
   @media (min-width: 900px) {
     width: 640px;
   }
+  cursor: pointer;
 }
 
 .form {
@@ -25,6 +26,7 @@ select {
     margin: 40px 0;
     align-self: center;
     transform: translateX(5px);
+    cursor: pointer;
   }
 }
 
@@ -40,6 +42,7 @@ select {
   font-size: 18px;
   align-self: center;
   border: none;
+  cursor: pointer;
 }
 
 // PUMPS
@@ -107,4 +110,5 @@ select {
 .back-button {
   @extend %back-button;
   align-self: center;
+  cursor: pointer;
 }

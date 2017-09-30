@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Drink } from '../drink.model';
 import { ApiService } from '../services/api.service';
@@ -9,7 +10,21 @@ import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-drink-details',
   templateUrl: './drink-details.component.html',
-  styleUrls: ['./drink-details.component.scss']
+  styleUrls: ['./drink-details.component.scss'],
+  animations: [
+    trigger('slideIn', [
+      state('inactive', style({
+        marginBottom: '-186px',
+        transform: 'translateY(-220px)'
+      })),
+      state('active',   style({
+        marginBottom: '0',
+        transform: 'translateY(0px)'
+      })),
+      transition('inactive => active', animate('1000ms ease-in')),
+      transition('active => inactive', animate('1000ms ease-out'))
+    ])
+  ]
 })
 export class DrinkDetailsComponent implements OnInit {
   drinkName: string;
@@ -18,7 +33,7 @@ export class DrinkDetailsComponent implements OnInit {
   selectedMedium: boolean = false;
   selectedLarge: boolean = false;
   selectedSize: string = null;
-  showIngredients: boolean = false;
+  ingredientsVisibility: string = 'inactive';
 
   constructor(private api: ApiService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
@@ -37,10 +52,8 @@ export class DrinkDetailsComponent implements OnInit {
     window.history.back();
   }
 
-  toggleIngredients() {
-    console.log(this.showIngredients);
-    this.showIngredients = !this.showIngredients;
-    console.log(this.showIngredients);
+  toggleMove() {
+      this.ingredientsVisibility = (this.ingredientsVisibility === 'inactive' ? 'active' : 'inactive');
   }
 
   setSize(size: string) {

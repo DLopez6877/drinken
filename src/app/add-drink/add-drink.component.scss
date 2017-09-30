@@ -75,6 +75,7 @@ form {
     height: 35px;
     @include linear-gradient(white, lightgrey);
     margin-left: 20px;
+    cursor: pointer;
   }
   .name-input {
     @media (min-width: 900px) {
@@ -91,4 +92,5 @@ form {
 .back-button {
   @extend %back-button;
   align-self: center;
+  cursor: pointer;
 }

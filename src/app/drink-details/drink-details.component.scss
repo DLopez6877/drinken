@@ -12,6 +12,8 @@
 
 .drink-image {
   position: relative;
+  z-index: 1;
+  margin-top: 10px;
   margin-bottom: 10px;
   @extend %center;
   img {
@@ -20,6 +22,7 @@
     border: 5px solid $dark-color;
   }
   .img-link {
+    cursor: pointer;
     position: absolute;
     bottom: 5px;
     left: 50%;
@@ -41,16 +44,18 @@
 }
 
 .outer-border {
+  z-index: -1;
   position: absolute;
   left:50%;
   transform: translateX(-50%);
-  background-color: inherit;
+  background-color: $light-color;
   border: 5px solid $dark-color;
   width: 320px; //image width + (border width * 4)
   height: 220px; //image height + (border height * 4)
 }
 
 table {
+  pointer-events: none;
   margin-top: 20px;
   text-align: center;
   color: $dark-color;
@@ -118,8 +123,10 @@ div .selected {
 .loading-button {
   @include loading-button("POUR MY DRINK", "DRINK made", 4s);
   margin: 55px 0;
+  cursor: pointer;
 }
 
 .back-button {
   @extend %back-button;
+  cursor: pointer;
 }

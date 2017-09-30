@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { NgForm } from '@angular/forms';
 
@@ -9,6 +9,7 @@ import { Drink } from '../drink.model';
   templateUrl: './edit-drink.component.html',
   styleUrls: ['./edit-drink.component.scss']
 })
+
 export class EditDrinkComponent implements OnInit {
   drinks: Array<Drink>;
   selectedDrink: any;
@@ -72,10 +73,6 @@ export class EditDrinkComponent implements OnInit {
       });
     }
     console.log(this.selectedDrink);
-  }
-
-  goBack() {
-    window.history.back();
   }
 
   toString(num) {
