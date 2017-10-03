@@ -26,14 +26,6 @@ export class WelcomeComponent implements OnInit {
     this.navState = !this.navState;
   }
 
-  logIn() {
-    this.loggedIn = true;
-  }
-
-  logOut() {
-    this.loggedIn = false;
-  }
-
   goToDetailPage(clickedDrink: Drink) {
      this.router.navigate(['drink', clickedDrink.name]);
    };

@@ -6,17 +6,10 @@
   </div>
   <div class="spacer"></div>
   <div class="nav logged-in" [class.active]="navState">
-    <h1 routerLink="add-drink">ADD DRINKS</h1>
     <h1 routerLink="edit-drink">EDIT DRINKS</h1>
-    <h1 (click)="logOut()">LOG OUT</h1>
+    <h1 routerLink="add-drink">ADD A DRINK</h1>
     <div class="hr"></div>
-    <p>LOGGED IN AS:</p>
-    <p class="handle">dlopez6877@gmail.com</p>
-  </div>
-  <div class="nav" [class.active]="navState" *ngIf="!loggedIn">
     <img src="../assets/images/amf.png" alt="drink icon">
-    <div class="hr"></div>
-    <h1 (click)="logIn()">Log In</h1>
   </div>
   <img src="../assets/images/DRINKEN.png" alt="logo">
   <div class="title">

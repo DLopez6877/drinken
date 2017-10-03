@@ -10,43 +10,30 @@ import { Drink } from '../drink.model';
   styleUrls: ['./add-drink.component.scss']
 })
 export class AddDrinkComponent implements OnInit {
-  ingredient1 = 'none';
+  currentPumps = ['Vodka', 'Orange Juice', 'Cranberry Juice', 'Ginger Ale', 'Peach Schnapps'];
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    // this.api.getAllDrinks().subscribe(res => {
-    //   console.log(res.json());
-    // });
-  }
-
-  createRange(number){
-    var items: number[] = [];
-    for(var i = 1; i <= number; i++){
-       items.push(i);
-    }
-    return items;
   }
 
   submitForm(form: NgForm) {
 
     var ingredients = [
+      {drink: form.value.ingredient0, amt:form.value.amt0},
       {drink: form.value.ingredient1, amt:form.value.amt1},
       {drink: form.value.ingredient2, amt:form.value.amt2},
       {drink: form.value.ingredient3, amt:form.value.amt3},
       {drink: form.value.ingredient4, amt:form.value.amt4},
-      {drink: form.value.ingredient5, amt:form.value.amt5},
     ];
 
-    //set empty fields
+    //replace empty fields
     ingredients.map(function(obj) {
-      if (obj.drink === "") {
-        obj.drink = "none";
-      }
       if (obj.amt === "") {
         obj.amt = 0;
       }
     });
+
 
     var newDrink = new Drink(form.value.name, form.value.img, ingredients);
     this.api.createNewDrink(newDrink).subscribe((res) => {

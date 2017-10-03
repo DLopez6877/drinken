@@ -18,9 +18,6 @@ div .hidden {
   @extend %center;
   flex-direction: column;
   justify-content: space-between;
-  img {
-    margin-top: 70px;
-  }
 }
 
 .title {
@@ -115,15 +112,5 @@ div .hidden {
   h1 {
     color: $primary-color;
     cursor: pointer;
-  }
-  p {
-    color: $dark-color;
-    margin: 0;
-    font-size: 24px;
-    font-family: es-light;
-  }
-  .handle {
-    font-size: 20px;
-    text-transform: lowercase;
   }
 }
