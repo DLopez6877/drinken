@@ -56,6 +56,7 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   setSize(size: string) {
+    document.getElementById('button-animation').style.color = 'white';
     this.selectedSmall = false;
     this.selectedMedium = false;
     this.selectedLarge = false;
@@ -70,21 +71,43 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   pourDrink(ingredients){
+    var buttonText = document.getElementById('button-animation');
+
     if (this.selectedSize != null) {
+      var durations = [];
       var pumpCounter = 0;
       var multiplier = this.divide50ByTotalSum(ingredients);
-      console.log('Pouring ' + this.selectedSize + ' drink. Recipe:');
+      console.log('Pouring ' + this.selectedSize + ' drink.');
+
       for (var i in ingredients) {
         var delay = this.calculateDuration(ingredients[i].amt, multiplier, this.selectedSize);
+        durations.push(delay);
         var selectedPump = this.determinePump(pumpCounter);
         var querystring = '?delay=' + delay + "&selectedPump=" + selectedPump;
         this.api.pourDrink(querystring).subscribe(res => {
           console.log(res);
         });
         pumpCounter++;
-        console.log(pumpCounter + ". " + ingredients[i].drink + ": " + delay + "ms");
-        console.log(querystring);
       }
+
+      // button animation
+      document.getElementById('label').style.backgroundColor = "#90FFD6";
+      var pourTime = Math.max(...durations);
+      var textCounter = 0;
+      var id = setInterval(function() {
+        if (textCounter === 100) {
+          buttonText.innerHTML = "DRINK MADE"
+          clearInterval(id);
+        } else {
+          textCounter++;
+          buttonText.innerHTML = textCounter + '%';
+        }
+      }, pourTime/100);
+    }
+
+    else {
+      buttonText.style.color = 'red';
+      buttonText.innerHTML = "SELECT SIZE";
     }
   }
 

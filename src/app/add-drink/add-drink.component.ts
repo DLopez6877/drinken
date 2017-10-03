@@ -15,9 +15,9 @@ export class AddDrinkComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getAllDrinks().subscribe(res => {
-      console.log(res.json());
-    });
+    // this.api.getAllDrinks().subscribe(res => {
+    //   console.log(res.json());
+    // });
   }
 
   createRange(number){

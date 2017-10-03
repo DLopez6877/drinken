@@ -13,7 +13,6 @@ board.on('ready', function () {
 });
 
 function pourDrink(params) {
-  console.log(params + " reached robot.js");
   if (params.selectedPump === "pump0") {
     pump0.on();
     setTimeout(function(){ pump0.off(); }, params.delay);

@@ -32,7 +32,6 @@ export class EditDrinkComponent implements OnInit {
   getAllDrinks() {
     this.api.getAllDrinks().subscribe(res => {
       this.drinks = res.json();
-      console.log(this.convertAmountsToString(this.drinks));
       this.selectedDrink = this.drinks[0];
     });
   }

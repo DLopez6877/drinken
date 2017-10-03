@@ -42,8 +42,9 @@
   </div>
 
   <div class="loading-button">
-    <button type="submit" id="loading-checkbox"></button>
-    <label for="loading-checkbox"></label>
+    <div id="button-animation">POUR DRINK</div>
+    <button type="submit" id="loading-checkbox" (click)="pourDrink(drinkToDisplay.ingredients)"></button>
+    <label id="label" for="loading-checkbox"></label>
   </div>
 
   <div class="back-button" (click)="goBack()">BACK</div>
