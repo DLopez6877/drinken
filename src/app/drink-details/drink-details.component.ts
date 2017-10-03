@@ -90,12 +90,14 @@ export class DrinkDetailsComponent implements OnInit {
         pumpCounter++;
       }
 
-      // button animation
-      document.getElementById('label').style.backgroundColor = "#90FFD6";
+      // button animation and console log pourTime
       var pourTime = Math.max(...durations);
+      console.log('This will take about ' + Math.round(pourTime/1000) + " seconds");
+
+      document.getElementById('label').style.backgroundColor = "#90FFD6";
       var textCounter = 0;
       var id = setInterval(function() {
-        if (textCounter === 100) {
+        if (textCounter === 99) {
           buttonText.innerHTML = "DRINK MADE"
           clearInterval(id);
         } else {
@@ -121,13 +123,13 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   calculateDuration(amt, multiplier, size) {
-    var duration; //1 = 50seconds
+    var duration; //1 = approx 30ml
     if ( size === "small") {
-      duration = amt * multiplier * .5; //10 seconds total
+      duration = amt * multiplier; //30ml
     } else if ( size === "medium") {
-      duration = amt * multiplier * .5; //25 seconds
+      duration = amt * multiplier * 4; //120ml
     } else {
-      duration = amt * multiplier * 1; //50 seconds
+      duration = amt * multiplier * 10; //300ml
     }
 
     duration = duration * 1000; //convert to ms
