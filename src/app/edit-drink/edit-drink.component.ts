@@ -53,25 +53,23 @@ export class EditDrinkComponent implements OnInit {
 
   updateDrink(drinkToUpdate: Drink) {
     this.api.updateDrink(this.selectedDrink).subscribe(res => {
-      console.log(res);
+      // console.log(res);
     });
   }
 
   onChange(selectedDrink) {
     this.api.getOneDrink(selectedDrink).subscribe(res => {
       this.selectedDrink = res.json()[0];
-      console.log(this.selectedDrink);
     })
   }
 
   deleteDrink() {
     if(confirm("Are you sure you want to delete this Drink?")) {
       this.api.deleteDrink(this.selectedDrink.name).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.getAllDrinks();
       });
     }
-    console.log(this.selectedDrink);
   }
 
   toString(num) {

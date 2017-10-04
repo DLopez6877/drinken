@@ -37,13 +37,13 @@ export class AddDrinkComponent implements OnInit {
 
     var newDrink = new Drink(form.value.name, form.value.img, ingredients);
     this.api.createNewDrink(newDrink).subscribe((res) => {
-      console.log(res);
+      // console.log(res);
     });
   }
 
   getOneDrink(form: NgForm) {
     this.api.getOneDrink(form.value.id).subscribe(res => {
-      console.log(res);
+      // console.log(res);
     })
   }
 

@@ -77,7 +77,6 @@ export class DrinkDetailsComponent implements OnInit {
       var durations = [];
       var pumpCounter = 0;
       var multiplier = this.divide50ByTotalSum(ingredients);
-      console.log('Pouring ' + this.selectedSize + ' drink.');
 
       for (var i in ingredients) {
         var delay = this.calculateDuration(ingredients[i].amt, multiplier, this.selectedSize);
@@ -85,14 +84,14 @@ export class DrinkDetailsComponent implements OnInit {
         var selectedPump = this.determinePump(pumpCounter);
         var querystring = '?delay=' + delay + "&selectedPump=" + selectedPump;
         this.api.pourDrink(querystring).subscribe(res => {
-          console.log(res);
+          // console.log(res);
         });
         pumpCounter++;
       }
 
       // button animation and console log pourTime
       var pourTime = Math.max(...durations);
-      console.log('This will take about ' + Math.round(pourTime/1000) + " seconds");
+      console.log('Pouring ' + this.selectedSize + ' drink. This will take about ' + Math.round(pourTime/1000) + " seconds.");
 
       document.getElementById('label').style.backgroundColor = "#90FFD6";
       var textCounter = 0;
