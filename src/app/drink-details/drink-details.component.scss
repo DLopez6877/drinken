@@ -2,6 +2,9 @@
 
 .section-header {
   @extend %section-header;
+  @media (min-width: 730px) {
+    height: 120px;
+  }
 }
 
 .container {
@@ -13,20 +16,21 @@
 .drink-image {
   position: relative;
   z-index: 1;
-  margin-top: 10px;
-  margin-bottom: 10px;
   @extend %center;
   img {
     width: 300px;
     height: 200px;
     border: 5px solid $dark-color;
+    @media (min-width: 730px) {
+      width: 360px;
+      height: 240px;
+    }
   }
   .img-link {
     cursor: pointer;
     position: absolute;
     bottom: 5px;
-    left: 50%;
-    transform: translateX(95px);
+    right: 5px;
     height: 30px;
     width: 50px;
     color: $dark-color;
@@ -40,6 +44,9 @@
     transform: none;
     left: 5px;
     width: 80px;
+    @media (min-width: 730px) {
+      display: none;
+    }
   }
 }
 
@@ -66,21 +73,35 @@ table {
   th {
     text-decoration: underline;
   }
+  @media (min-width: 730px) {
+    margin-bottom: 0 !important;
+    transform: translateY(0) !important;
+    min-width: 360px;
+  }
 }
 
 .section-title {
   @extend %section-title;
   margin: 20px 0;
+  @media (min-width: 730px) {
+    width: 420px;
+  }
 }
 
 .size-options {
   display: flex;
   justify-content: space-between;
   width: 320px;
+  @media (min-width: 730px) {
+    width: 420px;
+  }
   .size {
     width: 83px;
     height: 141px;
     position: relative;
+    @media (min-width: 730px) {
+      width: 100px;
+    }
     h2 {
       font-family: es-light;
       color: $dark-color;
@@ -182,4 +203,7 @@ div .selected {
 .back-button {
   @extend %back-button;
   cursor: pointer;
+  @media (min-width: 730px) {
+    margin-top: 30px;
+  }
 }

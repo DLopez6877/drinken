@@ -91,7 +91,7 @@ export class DrinkDetailsComponent implements OnInit {
 
       // button animation and console log pourTime
       var pourTime = Math.max(...durations);
-      console.log('Pouring ' + this.selectedSize + ' drink. This will take about ' + Math.round(pourTime/1000) + " seconds.");
+      console.log('Pouring ' + this.selectedSize + ' drink. This will take ' + Math.round(pourTime/1000) + " seconds.");
 
       document.getElementById('label').style.backgroundColor = "#90FFD6";
       var textCounter = 0;
